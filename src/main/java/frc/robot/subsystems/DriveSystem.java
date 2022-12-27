@@ -4,7 +4,8 @@ package frc.robot.subsystems;
 import frc.robot.Constants;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.drive.*;
 import edu.wpi.first.wpilibj.SerialPort;
@@ -19,10 +20,10 @@ import edu.wpi.first.wpilibj.Encoder;
  */
 public class DriveSystem extends SubsystemBase {
 
-    private WPI_TalonSRX leftFront = new WPI_TalonSRX(RobotMap.DRIVETRAIN_LEFT_FRONT);
-    private WPI_TalonSRX leftRear  = new WPI_TalonSRX(RobotMap.DRIVETRAIN_LEFT_BACK);
-    private WPI_TalonSRX rightFront  = new WPI_TalonSRX(RobotMap.DRIVETRAIN_RIGHT_FRONT);
-    private WPI_TalonSRX rightRear  = new WPI_TalonSRX(RobotMap.DRIVETRAIN_RIGHT_BACK);
+    private Spark leftFront = new Spark(RobotMap.DRIVETRAIN_LEFT_FRONT);
+    private Spark leftRear  = new Spark(RobotMap.DRIVETRAIN_LEFT_BACK);
+    private Spark rightFront  = new Spark(RobotMap.DRIVETRAIN_RIGHT_FRONT);
+    private Spark rightRear  = new Spark(RobotMap.DRIVETRAIN_RIGHT_BACK);
 
     private MotorControllerGroup mLeft = new MotorControllerGroup(leftFront, leftRear);
     private MotorControllerGroup mRight = new MotorControllerGroup(rightFront, rightRear);
@@ -188,6 +189,7 @@ public class DriveSystem extends SubsystemBase {
     }
     
 }
+
 
 
 
